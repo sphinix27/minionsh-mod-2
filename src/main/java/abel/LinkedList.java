@@ -5,9 +5,8 @@ package abel;
  *
  * @param <T> Generic Object.
  */
-public class LinkedList<T> implements List<T> {
+public class LinkedList<T> extends AbstractList<T> {
 
-    private int size;
     private Node<T> first;
     private Node<T> last;
 
@@ -40,7 +39,7 @@ public class LinkedList<T> implements List<T> {
         if (this.first == null) {
             addFirst(node);
         } else {
-            Node current = this.last;
+            Node<T> current = this.last;
             this.last = node;
             current.next = node;
         }
@@ -53,9 +52,9 @@ public class LinkedList<T> implements List<T> {
     @Override
     public T get(int index) {
         int count = 0;
-        Node current = first;
+        Node<T> current = first;
         if (current == null) {
-            return null;
+            throw new IndexOutOfBoundsException();
         }
         if (count < index) {
             while (count < index) {
@@ -64,24 +63,7 @@ public class LinkedList<T> implements List<T> {
             }
         }
 
-        return (T) current.data;
-    }
-
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int size() {
-        return this.size;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isEmpty() {
-        return first == null && size == 0;
+        return current.data;
     }
 
     /**
@@ -90,7 +72,7 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void remove(int index) {
         int count = 0;
-        Node current = first;
+        Node<T> current = first;
         if (!isEmpty() && index < size) {
             if (count == index) {
                 this.first = this.first.next;
@@ -113,7 +95,7 @@ public class LinkedList<T> implements List<T> {
      */
     static class Node<T> {
         private T data;
-        private Node next;
+        private Node<T> next;
 
         /**
          * Default Constructor.

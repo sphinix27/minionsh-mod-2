@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -34,9 +33,9 @@ public class LinkedListTest {
     /**
      *
      */
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void testLinkedListReturnsNullIfItsEmpty() {
-        assertNull(linkedList.get(0));
+        linkedList.get(0);
     }
 
     /**
