@@ -89,6 +89,22 @@ public class LinkedList<T> extends AbstractList<T> {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Object[] toArray() {
+        Object[] array = new Object[size];
+        int count = 0;
+        Node<T> current = first;
+        while (count < size) {
+            array[count] = current.data;
+            current = current.next;
+            count++;
+        }
+        return array;
+    }
+
+    /**
      * Static class that represent the nodes of a Linked List.
      *
      * @param <T> Generic Object.

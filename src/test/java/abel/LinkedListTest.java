@@ -4,6 +4,7 @@ package abel;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -115,5 +116,16 @@ public class LinkedListTest {
         linkedList.add(1);
         int actual = linkedList.size();
         assertEquals(expected, actual);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testArrayListToArray() {
+        linkedList.add(1);
+        Integer[] expected = {1};
+        Object[] actual = linkedList.toArray();
+        assertArrayEquals(expected, actual);
     }
 }

@@ -42,4 +42,10 @@ public interface List<T> {
      * @param index int.
      */
     void remove(int index);
+
+    /**
+     * Convert the List to an Array.
+     * @return Array of Objects.
+     */
+    Object[] toArray();
 }

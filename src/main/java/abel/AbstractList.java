@@ -43,4 +43,10 @@ public abstract class AbstractList<T> implements List<T> {
      */
     @Override
     public abstract void remove(int index);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public abstract Object[] toArray();
 }

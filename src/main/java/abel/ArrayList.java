@@ -64,4 +64,12 @@ public class ArrayList<T> extends AbstractList<T> {
         }
         size--;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Object[] toArray() {
+        return Arrays.copyOf(this.array, size);
+    }
 }

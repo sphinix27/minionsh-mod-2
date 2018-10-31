@@ -3,6 +3,7 @@ package abel;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -114,5 +115,16 @@ public class ArrayListTest {
         arrayList.add(1);
         int actual = arrayList.size();
         assertEquals(expected, actual);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void testArrayListToArray() {
+        arrayList.add(1);
+        Integer[] expected = {1};
+        Object[] actual = arrayList.toArray();
+        assertArrayEquals(expected, actual);
     }
 }
